@@ -1,0 +1,23 @@
+<h2 class="checkout-title">Checkout</h2>
+
+<mat-card class="checkout-card">
+  <mat-card-content>
+    <div class="order-items">
+      <p *ngFor="let it of cart.items" class="order-item">
+        <span>{{ it.qty }} × {{ it.name }}</span>
+        <span class="price">${{ it.price * it.qty }}</span>
+      </p>
+    </div>
+
+    <div class="order-total">
+      <strong>Total:</strong>
+      <span class="total-amount">${{ cart.total() }}</span>
+    </div>
+
+    <div class="order-actions">
+      <button mat-raised-button color="accent" (click)="placeOrder()" [disabled]="cart.items.length===0">
+        Confirmar pedido
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>

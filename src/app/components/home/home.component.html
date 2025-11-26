@@ -1,0 +1,34 @@
+<h2 class="section-title">Menú</h2>
+
+<mat-form-field appearance="outline" class="search-field">
+  <mat-label>Buscar producto</mat-label>
+  <input matInput placeholder="Nombre del producto" [(ngModel)]="searchTerm">
+  <button mat-icon-button matSuffix *ngIf="searchTerm" (click)="searchTerm=''">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+
+<div class="grid" *ngIf="!loading; else loadingTpl">
+  <mat-card *ngFor="let p of filteredProducts()" class="product-card">
+    <div class="image-wrapper">
+      <img mat-card-image [src]="p.image_url || 'assets/cafe-placeholder.png'" alt="{{p.name}}">
+    </div>
+    <mat-card-header>
+      <mat-card-title>{{ p.name }}</mat-card-title>
+      <mat-card-subtitle>${{ p.price }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ p.description }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="accent" (click)="addToCart(p)">Agregar</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<ng-template #loadingTpl>
+  <div class="loading">
+    <mat-spinner></mat-spinner>
+    <p>Cargando productos...</p>
+  </div>
+</ng-template>

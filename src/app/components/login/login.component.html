@@ -1,0 +1,39 @@
+<div class="login-container">
+  <!-- Lado izquierdo: Imagen -->
+  <div class="login-image">
+    <img src="assets/cafe-icon.png" alt="Café Icon">
+  </div>
+
+  <!-- Lado derecho: Formulario -->
+  <div class="login-form-wrapper">
+    <mat-card class="login-card">
+      <h2>{{ isRegister ? 'Crear cuenta' : 'Iniciar sesión' }}</h2>
+
+      <ng-container *ngIf="isRegister">
+        <mat-form-field class="full" appearance="fill">
+          <mat-label>Nombre</mat-label>
+          <input matInput [(ngModel)]="name">
+        </mat-form-field>
+      </ng-container>
+
+      <mat-form-field class="full" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="email">
+      </mat-form-field>
+
+      <mat-form-field class="full" appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" [(ngModel)]="password">
+      </mat-form-field>
+
+      <div class="login-buttons">
+        <button mat-raised-button color="primary" (click)="submit()">
+          {{ isRegister ? 'Registrarme' : 'Entrar' }}
+        </button>
+        <button mat-button (click)="isRegister = !isRegister">
+          {{ isRegister ? 'Ya tengo cuenta' : 'Crear una cuenta' }}
+        </button>
+      </div>
+    </mat-card>
+  </div>
+</div>

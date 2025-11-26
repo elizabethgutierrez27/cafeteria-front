@@ -1,0 +1,50 @@
+.admin-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.admin-card {
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.premium-table {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.premium-row:hover {
+  background: #f9f9f9;
+}
+
+.email {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status.pendiente {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status.aprobado {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status.cancelado {
+  background: #f8d7da;
+  color: #721c24;
+}
